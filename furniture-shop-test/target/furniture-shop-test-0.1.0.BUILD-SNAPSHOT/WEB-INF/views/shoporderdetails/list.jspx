@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_katzan_spring_furnituretest_model_ShopOrderDetail" items="${shoporderdetails}" z="7UyFRqILCsGxwUUk4s4ZjmI+fXc=">
+        <table:table data="${shoporderdetails}" id="l_com_katzan_spring_furnituretest_model_ShopOrderDetail" path="/shoporderdetails" z="z4aWFrVDGxGVak3lNWBpIdq/edY=">
+            <table:column id="c_com_katzan_spring_furnituretest_model_ShopOrderDetail_furnitureItem" property="furnitureItem" z="KbWvt/gYr++Skhhm9VHJejgO6fA="/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_ShopOrderDetail_quantity" property="quantity" z="7vFIc3QjzJgzu1lYzTcTOrGJgC8="/>
+        </table:table>
+    </page:list>
+</div>

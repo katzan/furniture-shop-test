@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_katzan_spring_furnituretest_model_UserAccount" items="${useraccounts}" z="XIVj+I71KjU/mp/qcs+/lY1kuPk=">
+        <table:table data="${useraccounts}" id="l_com_katzan_spring_furnituretest_model_UserAccount" path="/useraccounts" z="TqYRuQrE/YYjeTu5LbPepeko78c=">
+            <table:column id="c_com_katzan_spring_furnituretest_model_UserAccount_firstName" property="firstName" z="aN7XXr5tUTQ+0YTgyv4IkcqK40Y="/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_UserAccount_lastName" property="lastName" z="KRUwdhRnV3OZUIuDMy7QW+ziB7s="/>
+            <table:column date="true" dateTimePattern="${userAccount_dateofbirth_date_format}" id="c_com_katzan_spring_furnituretest_model_UserAccount_dateOfBirth" property="dateOfBirth" z="k/FAjBbD7Z2zmm7A6epR/RRtDQs="/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_UserAccount_address" property="address" z="hDHpDW9aa5iF9AzWBAeuJh1UhT0="/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_UserAccount_emailAddress" property="emailAddress" z="yEA/6xB1RmH/O7bJ3bon8Fsai70="/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_UserAccount_phoneNumber" property="phoneNumber" z="dnBlC6JBOUsTGrsUvqPmLyDm76g="/>
+        </table:table>
+    </page:list>
+</div>

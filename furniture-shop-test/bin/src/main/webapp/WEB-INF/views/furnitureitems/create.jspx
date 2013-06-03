@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:forms="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_katzan_spring_furnituretest_model_FurnitureItem" modelAttribute="furnitureItem" multipart="true" path="/furnitureitems" render="${empty dependencies}" z="user-managed">
+        <field:input field="itemName" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_itemName" z="user-managed"/>
+        <field:textarea field="itemDescription" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_itemDescription" z="69nnjyNzpBT1lalQMnO1S0HtYkA="/>
+        <field:input field="itemPrice" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_itemPrice" z="EjgTSDGBwUV3yJ2wdGsSq5nooHg="/>
+        <util:panel id="metaTegsPanel" openPane="false" title="Meta Tegs Panel">
+            <field:textarea field="metaDescription" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_metaDescription" z="DEF727srHxu+DHA9qwazlnjzQkY="/>
+            <field:textarea field="metaTitle" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_metaTitle" z="N+Eu/qxY5tC8ksphi/gfP7C2Ecw="/>
+            <field:textarea field="metaKeywords" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_metaKeywords" z="um79VZiBOT3NcpBGwWiG+3tpbKg="/>
+        </util:panel>
+        <br/>
+        <field:select field="furnitureCategories" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_furnitureCategories" items="${furniturecategorys}" multiple="true" path="/furniturecategorys" render="false" z="user-managed"/>
+        <util:panel id="categoryCheckboxes" openPane="false" title="Category Checkboxes">
+            <forms:checkboxes delimiter="&lt;br/&gt;" itemLabel="categoryName" itemValue="id" items="${furniturecategorys }" path="furnitureCategories"/>
+        </util:panel>
+        <br/>
+        <field:select field="furnitureCollections" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_furnitureCollections" itemValue="id" items="${furniturecollections}" multiple="true" path="/furniturecollections" render="false" z="user-managed"/>
+        <util:panel id="collectionCheckboxes" openPane="false" title="Collection Checkboxes">
+            <forms:checkboxes delimiter="&lt;br/&gt;" itemLabel="collectionName" itemValue="id" items="${furniturecollections}" path="furnitureCollections"/>
+            <br/>
+        </util:panel>
+        <br/>
+        <util:panel id="smallImageFilePanel" openPane="false" title="Small Image File Panel">
+            <field:display field="smallImageSize" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_smallImageSize" object="${furnitureItem}" z="user-managed"/>
+            <field:file field="smallFile" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_smallFile" z="user-managed"/>
+            <img alt="" src="${pageContext.request.contextPath}/img/${furnitureItem.smallImageFile}" style="width: 30%;height: 30%;"/>
+            <field:input field="smallImageFile" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_smallImageFile" z="NWocvNcruVuJkLP+tiwI7ffE2tM="/>
+        </util:panel>
+        <br/>
+        <util:panel id="largeImageFilePanel" openPane="false" title="Large Image File Panel">
+            <field:input field="largeImageFile" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_largeImageFile" z="WvECc6VsvRTlRCf+dvHePkq/OpU="/>
+            <field:input field="largeImageSize" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_largeImageSize" z="eTrjOkEihnWx3XIZ+fkFd1p/XNQ="/>
+            <field:file field="largeFile" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_largeFile" z="user-managed"/>
+            <img alt="" src="${pageContext.request.contextPath}/img/${furnitureItem.largeImageFile}" style="width: 30%;height: 30%;"/>
+        </util:panel>
+        <br/>
+        <util:panel id="imageFilePanel" openPane="false" title="Image File Panel">
+            <field:select field="imageFiles" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_imageFiles" itemValue="id" items="${imagefiles}" multiple="true" path="/imagefiles" z="C7zXB2tnoHtXndHLpuByRqzEcsw="/>
+        </util:panel>
+        <br/>
+        <table>
+            <tr>
+                <td>
+                    <field:checkbox field="showOnFirstPage" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_showOnFirstPage" z="QNQYshV4zMvAo46p8+zc19KGt1M="/>
+                </td>
+                <td>
+                    <field:checkbox field="inStock" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_inStock" z="nwLEoAgJ2XKChUvnC2pTtWCefIQ="/>
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <field:input field="listNumber" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_listNumber" z="XxeDAvggRIdsrA3F2CjTOkUvJVo="/>
+        <field:input field="codeNumber" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_codeNumber" z="RuK/36MHFfx5paUnkEUKJsTyAU0="/>
+        <field:input field="dimensions" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_dimensions" z="n5+W+lDRTF284/VDcnCPO/DfNt0="/>
+        <field:input field="materials" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_materials" z="SbtBKyUH/kgbdpziOkXf2u8ux7c="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_katzan_spring_furnituretest_model_FurnitureItem" render="${not empty dependencies}" z="Lj06KwgGindomqBgLqVNAPK9xEg="/>
+</div>

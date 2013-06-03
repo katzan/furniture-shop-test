@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_katzan_spring_furnituretest_model_Article" object="${article}" path="/articles" z="HYZjZdbs6qM83it61lOHraWVY+w=">
+        <field:display field="name" id="s_com_katzan_spring_furnituretest_model_Article_name" object="${article}" z="FVHyrhl6yC/HrlorMrIL/bLzqyg="/>
+        <field:display field="articleText" id="s_com_katzan_spring_furnituretest_model_Article_articleText" object="${article}" z="l2Pdfn2/Q1s/RFYIF4eKq8oAhFI="/>
+    </page:show>
+</div>

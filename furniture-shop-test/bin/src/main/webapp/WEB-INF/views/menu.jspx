@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <menu:category id="c_imagefile" z="6Vg4O4VgKq+aco/o+qNrHoBfyNE=">
+            <menu:item id="i_imagefile_new" messageCode="global_menu_new" url="/imagefiles?form" z="BAe2CZgEAs7hfSO3rpEn0wtkUCo="/>
+            <menu:item id="i_imagefile_list" messageCode="global_menu_list" url="/imagefiles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="gL1KjkCY5JwXiWMJ7jBOOnfqzKE="/>
+        </menu:category>
+        <menu:category id="c_big" z="M+u7y/UbVXFPlJoxAAJpN01tHy8=">
+            <menu:item id="i_big_new" messageCode="global_menu_new" url="/bigs?form" z="8QJZdNaJL+B8yK5rfNQZX7buMts="/>
+            <menu:item id="i_big_list" messageCode="global_menu_list" url="/bigs?page=1&amp;size=${empty param.size ? 10 : param.size}" z="QH/NiTmJEPPz8DZ1VI/3kHDuI/0="/>
+        </menu:category>
+        <menu:category id="c_furniturecategory" z="HwBlLlxRAXqydkYq6mkzikOkzo8=">
+            <menu:item id="i_furniturecategory_new" messageCode="global_menu_new" url="/furniturecategorys?form" z="od8r4ZgwFbppmoDeOo3jKDYYJYQ="/>
+            <menu:item id="i_furniturecategory_list" messageCode="global_menu_list" url="/furniturecategorys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="iw4uDbHN9lT9SDG1iWsUd+hP9Kg="/>
+        </menu:category>
+        <menu:category id="c_furniturecollection" z="rY1TquysMC1if/W7kM3uUpv53ms=">
+            <menu:item id="i_furniturecollection_new" messageCode="global_menu_new" url="/furniturecollections?form" z="ySs6/8VLi2YTczc9CkaBe9gWw+0="/>
+            <menu:item id="i_furniturecollection_list" messageCode="global_menu_list" url="/furniturecollections?page=1&amp;size=${empty param.size ? 10 : param.size}" z="YBNuYVh0aR4fkLgV7J7NeIb9m9Y="/>
+        </menu:category>
+        <menu:category id="c_furnitureitem" z="1WeIpQKDi3qw0+y7p69jrqafhJI=">
+            <menu:item id="i_furnitureitem_new" messageCode="global_menu_new" url="/furnitureitems?form" z="sMbYrHGrduZ2v90m3U2SwUAKn0Q="/>
+            <menu:item id="i_furnitureitem_list" messageCode="global_menu_list" url="/furnitureitems?page=1&amp;size=${empty param.size ? 10 : param.size}" z="cm48FgYGKrN5JOX+vhQNic7lBCA="/>
+        </menu:category>
+        <menu:category id="c_furniturenews" z="/URgqkrzReGlb1ErIwl3QlCZMTg=">
+            <menu:item id="i_furniturenews_new" messageCode="global_menu_new" url="/furniturenewses?form" z="r3H+Z4REgWoqxRuD8oQ6/HrIyO0="/>
+            <menu:item id="i_furniturenews_list" messageCode="global_menu_list" url="/furniturenewses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="F87nT7HHDIoQlzJex4tx7MYUvtM="/>
+        </menu:category>
+        <menu:category id="c_aboutus" z="dE8OMB1V1rXLPZa9FhwPVUMmaFQ=">
+            <menu:item id="i_aboutus_new" messageCode="global_menu_new" url="/aboutuses?form" z="nEDbRk9IjEjaUGhVyYBEWQ4rZfs="/>
+            <menu:item id="i_aboutus_list" messageCode="global_menu_list" url="/aboutuses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ewZZXQFGlIKgreQycJu6OurNgxc="/>
+        </menu:category>
+        <menu:category id="c_serviceitem" z="lMMh7LQSpi08xhhgQtToR7PkEEg=">
+            <menu:item id="i_serviceitem_new" messageCode="global_menu_new" url="/serviceitems?form" z="ZYMtu3FSNPwv1Mlb9JZ74k7X6FY="/>
+            <menu:item id="i_serviceitem_list" messageCode="global_menu_list" url="/serviceitems?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Xzt8LFW0w0yHfqGtyu1oEF5wbEk="/>
+        </menu:category>
+        <menu:category id="c_contact" z="Mum4Pow72SFjHtkf2OLMqQutcOg=">
+            <menu:item id="i_contact_new" messageCode="global_menu_new" url="/contacts?form" z="lwRv41keqcpEkNgDi/vzZp8BfAw="/>
+            <menu:item id="i_contact_list" messageCode="global_menu_list" url="/contacts?page=1&amp;size=${empty param.size ? 10 : param.size}" z="DYJuwxmLMZGoQddIUWlUOx4o5Qg="/>
+        </menu:category>
+        <menu:category id="c_shoporder" z="qL0r+DonAUJ6zy2TE9eHBrxqqNA=">
+            <menu:item id="i_shoporder_new" messageCode="global_menu_new" url="/shoporders?form" z="71lNNfBFfu5E/zRzaTBZydwGHp0="/>
+            <menu:item id="i_shoporder_list" messageCode="global_menu_list" url="/shoporders?page=1&amp;size=${empty param.size ? 10 : param.size}" z="1UVgGoPYwP/R/M4/rM+7efL7900="/>
+        </menu:category>
+        <menu:category id="c_useraccount" z="Yb8cyPB5AwOfYXCcrEpGXNT9C+k=">
+            <menu:item id="i_useraccount_new" messageCode="global_menu_new" url="/useraccounts?form" z="dm6iErpLQmgISoPCTS3yLiH8XFA="/>
+            <menu:item id="i_useraccount_list" messageCode="global_menu_list" url="/useraccounts?page=1&amp;size=${empty param.size ? 10 : param.size}" z="nijRCp2PPYuD2D3D7hljcdDK4vs="/>
+        </menu:category>
+        <menu:category id="c_shoporderdetail" z="QJraePQE3xk7uYJHnrX2RaMNnUg=">
+            <menu:item id="i_shoporderdetail_new" messageCode="global_menu_new" url="/shoporderdetails?form" z="3WTPDubUFMPVuZyf3LhBjWWCdkI="/>
+            <menu:item id="i_shoporderdetail_list" messageCode="global_menu_list" url="/shoporderdetails?page=1&amp;size=${empty param.size ? 10 : param.size}" z="64InJ0I0raD0trWRTt9VrSdnJbo="/>
+        </menu:category>
+    </menu:menu>
+</div>

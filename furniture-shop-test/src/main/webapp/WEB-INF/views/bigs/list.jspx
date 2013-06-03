@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_katzan_spring_furnituretest_model_Big" items="${bigs}" z="MR/31nu+QpQ/I0pEV5CK3dn/L1g=">
+        <table:table data="${bigs}" id="l_com_katzan_spring_furnituretest_model_Big" path="/bigs" z="Y5iTtt3y6qlskC8hbPgRN6G9OvU=">
+            <table:column id="c_com_katzan_spring_furnituretest_model_Big_file" property="file" z="M8Hx5w3QzlPzWeFjzorTBbosZN4="/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_Big_content" property="content" z="cOIaB3DrEQG+6ql6FyDHhIdz7AE="/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_Big_name" property="name" z="KJm35Maq1dXk0QWPOysmEMYWTdw="/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_Big_fileName" property="fileName" z="2zGqYUlkJmA1cpHXiBi2tBmJJgA="/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_Big_size" property="size" z="1kUkCd6j2/9ugyvybvko6Bn8jyA="/>
+        </table:table>
+    </page:list>
+</div>

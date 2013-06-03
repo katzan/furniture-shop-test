@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_katzan_spring_furnituretest_model_FurnitureItem" items="${furnitureitems}" z="oSAfUEi4fIfDt4/WYqs1jMx11jM=">
+        <table:table data="${furnitureitems}" id="l_com_katzan_spring_furnituretest_model_FurnitureItem" path="/furnitureitems" z="gmue6P/mRRu7AkoEilxIK3UH8Ow=">
+            <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureItem_itemName" property="itemName" z="6lMhtt/OJAiiVVppMC0Mk0s7JYY="/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureItem_itemDescription" property="itemDescription" render="false" z="user-managed"/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureItem_metaDescription" property="metaDescription" render="false" z="user-managed"/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureItem_metaKeywords" property="metaKeywords" render="false" z="NceQahXN779poHCVr+ZHOrPCayc="/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureItem_listNumber" property="listNumber" z="MzL2/7zbrgy7ej1BzyMCx1F44to="/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureItem_codeNumber" property="codeNumber" z="qIhSB+ChP7hBRZ3MICZij+g1PFc="/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureItem_dimensions" property="dimensions" render="false" z="user-managed"/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureItem_materials" property="materials" render="false" z="user-managed"/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureItem_itemPrice" property="itemPrice" z="baPo41g66oG9T4kIqBHvg0JlfVw="/>
+        </table:table>
+    </page:list>
+</div>
