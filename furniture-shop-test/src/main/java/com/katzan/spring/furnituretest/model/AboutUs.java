@@ -1,5 +1,7 @@
 package com.katzan.spring.furnituretest.model;
-
+/**
+ * Just a simple comment
+ */
 import javax.validation.constraints.Size;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
