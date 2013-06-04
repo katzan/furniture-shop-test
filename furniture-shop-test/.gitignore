@@ -2,4 +2,4 @@
 /bin/target
 /furniture-shop-test/.DS_Store
 /furniture-shop-test/bin/.DS_Store
-/furniture-shop-test/log.roo
+**/log.roo
