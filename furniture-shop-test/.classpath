@@ -4,7 +4,7 @@
 	<classpathentry including="**/*.java|**/*.aj" kind="src" path="src/main/java"/>
 	<classpathentry excluding="**/*.java" kind="src" path="src/main/resources"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/javax/el/el-api/1.0/el-api-1.0.jar" sourcepath="M2_REPO/javax/el/el-api/1.0/el-api-1.0-sources.jar"/>
-	<classpathentry exported="true" kind="var" path="M2_REPO/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.jar" sourcepath="M2_REPO/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.jar" sourcepath="M2_REPO/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/javax/servlet/jsp/jstl/jstl-api/1.2/jstl-api-1.2.jar" sourcepath="M2_REPO/javax/servlet/jsp/jstl/jstl-api/1.2/jstl-api-1.2-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/javax/transaction/jta/1.1/jta-1.1.jar" sourcepath="M2_REPO/javax/transaction/jta/1.1/jta-1.1-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar" sourcepath="M2_REPO/javax/servlet/servlet-api/2.5/servlet-api-2.5-sources.jar"/>
