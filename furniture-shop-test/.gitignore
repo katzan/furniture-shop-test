@@ -1,5 +1,5 @@
 /target
 /bin/target
-.DS_Store
-.DS_Store?
-log.roo
+/furniture-shop-test/.DS_Store
+/furniture-shop-test/bin/.DS_Store
+/furniture-shop-test/log.roo
