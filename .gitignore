@@ -1,2 +1,4 @@
 target
 bin/target
+.DS_Store
+bin/.DS_Store
