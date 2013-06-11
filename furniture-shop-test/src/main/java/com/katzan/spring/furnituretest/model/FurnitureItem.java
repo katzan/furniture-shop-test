@@ -64,7 +64,7 @@ public class FurnitureItem {
 
  // FurnitureItem() throws MalformedURLException { }
 	  
-    @Value("#{systemProperties.IMAGE_STORAGE}")
+   // @Value("#{systemProperties.IMAGE_STORAGE}") //This property is need to explored
 	@Autowired
 	//@Value("ServerPath")
     @Transient
