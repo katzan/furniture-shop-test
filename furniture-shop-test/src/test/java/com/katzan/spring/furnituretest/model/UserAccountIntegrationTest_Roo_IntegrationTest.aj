@@ -24,7 +24,7 @@ privileged aspect UserAccountIntegrationTest_Roo_IntegrationTest {
     declare @type: UserAccountIntegrationTest: @Transactional;
     
     @Autowired
-    private UserAccountDataOnDemand UserAccountIntegrationTest.dod;
+    UserAccountDataOnDemand UserAccountIntegrationTest.dod;
     
     @Autowired
     UserAccountRepository UserAccountIntegrationTest.userAccountRepository;

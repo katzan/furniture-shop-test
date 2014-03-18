@@ -30,7 +30,7 @@ privileged aspect ShopOrderDataOnDemand_Roo_DataOnDemand {
     private List<ShopOrder> ShopOrderDataOnDemand.data;
     
     @Autowired
-    private UserAccountDataOnDemand ShopOrderDataOnDemand.userAccountDataOnDemand;
+    UserAccountDataOnDemand ShopOrderDataOnDemand.userAccountDataOnDemand;
     
     @Autowired
     ShopOrderRepository ShopOrderDataOnDemand.shopOrderRepository;

@@ -24,7 +24,7 @@ privileged aspect ArticleIntegrationTest_Roo_IntegrationTest {
     declare @type: ArticleIntegrationTest: @Transactional;
     
     @Autowired
-    private ArticleDataOnDemand ArticleIntegrationTest.dod;
+    ArticleDataOnDemand ArticleIntegrationTest.dod;
     
     @Autowired
     ArticleRepository ArticleIntegrationTest.articleRepository;

@@ -64,8 +64,8 @@ public class FurnitureItem {
 
  // FurnitureItem() throws MalformedURLException { }
 	  
-   // @Value("#{systemProperties.IMAGE_STORAGE}") //This property is need to explored
-	@Autowired
+    //@Value("#{systemProperties.IMAGE_STORAGE}") //This property is need to explored
+	//@Autowired
 	//@Value("ServerPath")
     @Transient
     private String serverPathString;
@@ -231,6 +231,7 @@ public class FurnitureItem {
             sid.addField("description", furnitureItem.getItemDescription());
             sid.addField("controller", "item");
             sid.addField("item_id", furnitureItem.getId());
+            sid.addField("foto", furnitureItem.smallImageFile);
             documents.add(sid);
         }
         try {
@@ -263,6 +264,10 @@ public class FurnitureItem {
     private void preRemove() {
         deleteIndex(this);
     }
+	
+	public String toString() {
+		return this.itemName;
+	}
 
 	public static SolrServer solrServer() {
 		ApplicationContext context = ApplicationContextProvider.getApplicationContext();

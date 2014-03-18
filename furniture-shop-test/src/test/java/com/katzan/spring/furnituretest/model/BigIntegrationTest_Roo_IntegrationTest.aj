@@ -24,7 +24,7 @@ privileged aspect BigIntegrationTest_Roo_IntegrationTest {
     declare @type: BigIntegrationTest: @Transactional;
     
     @Autowired
-    private BigDataOnDemand BigIntegrationTest.dod;
+    BigDataOnDemand BigIntegrationTest.dod;
     
     @Autowired
     BigRepository BigIntegrationTest.bigRepository;

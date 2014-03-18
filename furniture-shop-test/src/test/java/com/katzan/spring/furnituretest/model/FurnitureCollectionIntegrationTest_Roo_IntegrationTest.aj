@@ -24,7 +24,7 @@ privileged aspect FurnitureCollectionIntegrationTest_Roo_IntegrationTest {
     declare @type: FurnitureCollectionIntegrationTest: @Transactional;
     
     @Autowired
-    private FurnitureCollectionDataOnDemand FurnitureCollectionIntegrationTest.dod;
+    FurnitureCollectionDataOnDemand FurnitureCollectionIntegrationTest.dod;
     
     @Autowired
     FurnitureCollectionRepository FurnitureCollectionIntegrationTest.furnitureCollectionRepository;

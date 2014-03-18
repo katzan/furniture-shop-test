@@ -11,5 +11,11 @@
         <field:display field="metaTitle" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_metaTitle" object="${furniturecategory}" z="ST3ggB249J8y7MAl4WFkCOolSTc="/>
         <field:display field="metaKeywords" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_metaKeywords" object="${furniturecategory}" z="iqft4p5EU4ZVUaKx8pmo6GsNziE="/>
         <field:display field="imageFiles" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_imageFiles" object="${furniturecategory}" z="Q/5IEVH3PzOsH2/b5IR0Z5xpSWc="/>
+        <field:display field="smallImageFile" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_smallImageFile" object="${furniturecategory}" z="NxfpyFRP6dTbhRE/oIGjzF8v7YU="/>
+        <field:display field="smallImageSize" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_smallImageSize" object="${furniturecategory}" z="vm+C0D5LWcdwDFZOREE0aq7eQtQ="/>
+        <field:display field="smallFile" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_smallFile" object="${furniturecategory}" z="AwlKkDgIHXWxZrEYrPn6iqf2GJg="/>
+        <field:display field="largeImageFile" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_largeImageFile" object="${furniturecategory}" z="AWXoOX+0AZnfrwl5D7PFz10rv+8="/>
+        <field:display field="largeImageSize" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_largeImageSize" object="${furniturecategory}" z="Sm6TSbTm32ILUj1SoRAFEAYTDNM="/>
+        <field:display field="largeFile" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_largeFile" object="${furniturecategory}" z="Bb5WRFOzwY+uZa61bTOvgkodJUs="/>
     </page:show>
 </div>

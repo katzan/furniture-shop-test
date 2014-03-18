@@ -24,7 +24,7 @@ privileged aspect FurnitureCategoryIntegrationTest_Roo_IntegrationTest {
     declare @type: FurnitureCategoryIntegrationTest: @Transactional;
     
     @Autowired
-    private FurnitureCategoryDataOnDemand FurnitureCategoryIntegrationTest.dod;
+    FurnitureCategoryDataOnDemand FurnitureCategoryIntegrationTest.dod;
     
     @Autowired
     FurnitureCategoryRepository FurnitureCategoryIntegrationTest.furnitureCategoryRepository;

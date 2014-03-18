@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
 import org.springframework.roo.addon.solr.RooSolrSearchable;
@@ -136,4 +138,9 @@ public class FurnitureCollection {
     private Set<FurnitureItem>furnitureItems;
     
     
+
+	public String toString() {
+		return this.collectionName;
+        //return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+    }
 }

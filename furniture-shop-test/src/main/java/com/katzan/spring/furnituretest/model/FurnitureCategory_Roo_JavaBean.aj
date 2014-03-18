@@ -8,6 +8,7 @@ import com.katzan.spring.furnituretest.model.FurnitureCollection;
 import com.katzan.spring.furnituretest.model.FurnitureItem;
 import com.katzan.spring.furnituretest.model.ImageFile;
 import java.util.Set;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 privileged aspect FurnitureCategory_Roo_JavaBean {
     
@@ -73,6 +74,46 @@ privileged aspect FurnitureCategory_Roo_JavaBean {
     
     public void FurnitureCategory.setFurnitureItems(Set<FurnitureItem> furnitureItems) {
         this.furnitureItems = furnitureItems;
+    }
+    
+    public String FurnitureCategory.getSmallImageFile() {
+        return this.smallImageFile;
+    }
+    
+    public void FurnitureCategory.setSmallImageFile(String smallImageFile) {
+        this.smallImageFile = smallImageFile;
+    }
+    
+    public long FurnitureCategory.getSmallImageSize() {
+        return this.smallImageSize;
+    }
+    
+    public void FurnitureCategory.setSmallImageSize(long smallImageSize) {
+        this.smallImageSize = smallImageSize;
+    }
+    
+    public CommonsMultipartFile FurnitureCategory.getSmallFile() {
+        return this.smallFile;
+    }
+    
+    public String FurnitureCategory.getLargeImageFile() {
+        return this.largeImageFile;
+    }
+    
+    public void FurnitureCategory.setLargeImageFile(String largeImageFile) {
+        this.largeImageFile = largeImageFile;
+    }
+    
+    public long FurnitureCategory.getLargeImageSize() {
+        return this.largeImageSize;
+    }
+    
+    public void FurnitureCategory.setLargeImageSize(long largeImageSize) {
+        this.largeImageSize = largeImageSize;
+    }
+    
+    public CommonsMultipartFile FurnitureCategory.getLargeFile() {
+        return this.largeFile;
     }
     
 }

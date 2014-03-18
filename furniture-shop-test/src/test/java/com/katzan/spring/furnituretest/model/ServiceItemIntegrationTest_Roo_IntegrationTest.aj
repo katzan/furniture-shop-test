@@ -24,7 +24,7 @@ privileged aspect ServiceItemIntegrationTest_Roo_IntegrationTest {
     declare @type: ServiceItemIntegrationTest: @Transactional;
     
     @Autowired
-    private ServiceItemDataOnDemand ServiceItemIntegrationTest.dod;
+    ServiceItemDataOnDemand ServiceItemIntegrationTest.dod;
     
     @Autowired
     ServiceItemRepository ServiceItemIntegrationTest.serviceItemRepository;

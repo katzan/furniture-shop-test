@@ -24,7 +24,7 @@ privileged aspect AboutUsIntegrationTest_Roo_IntegrationTest {
     declare @type: AboutUsIntegrationTest: @Transactional;
     
     @Autowired
-    private AboutUsDataOnDemand AboutUsIntegrationTest.dod;
+    AboutUsDataOnDemand AboutUsIntegrationTest.dod;
     
     @Autowired
     AboutUsRepository AboutUsIntegrationTest.aboutUsRepository;

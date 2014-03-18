@@ -24,7 +24,7 @@ privileged aspect ContactIntegrationTest_Roo_IntegrationTest {
     declare @type: ContactIntegrationTest: @Transactional;
     
     @Autowired
-    private ContactDataOnDemand ContactIntegrationTest.dod;
+    ContactDataOnDemand ContactIntegrationTest.dod;
     
     @Autowired
     ContactRepository ContactIntegrationTest.contactRepository;

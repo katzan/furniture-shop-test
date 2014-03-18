@@ -24,7 +24,7 @@ privileged aspect FurnitureNewsIntegrationTest_Roo_IntegrationTest {
     declare @type: FurnitureNewsIntegrationTest: @Transactional;
     
     @Autowired
-    private FurnitureNewsDataOnDemand FurnitureNewsIntegrationTest.dod;
+    FurnitureNewsDataOnDemand FurnitureNewsIntegrationTest.dod;
     
     @Autowired
     FurnitureNewsRepository FurnitureNewsIntegrationTest.furnitureNewsRepository;

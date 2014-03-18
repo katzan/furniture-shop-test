@@ -26,7 +26,7 @@ privileged aspect ShopOrderDetailDataOnDemand_Roo_DataOnDemand {
     private List<ShopOrderDetail> ShopOrderDetailDataOnDemand.data;
     
     @Autowired
-    private FurnitureItemDataOnDemand ShopOrderDetailDataOnDemand.furnitureItemDataOnDemand;
+    FurnitureItemDataOnDemand ShopOrderDetailDataOnDemand.furnitureItemDataOnDemand;
     
     @Autowired
     ShopOrderDetailRepository ShopOrderDetailDataOnDemand.shopOrderDetailRepository;

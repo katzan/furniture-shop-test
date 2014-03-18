@@ -24,7 +24,7 @@ privileged aspect ShopOrderIntegrationTest_Roo_IntegrationTest {
     declare @type: ShopOrderIntegrationTest: @Transactional;
     
     @Autowired
-    private ShopOrderDataOnDemand ShopOrderIntegrationTest.dod;
+    ShopOrderDataOnDemand ShopOrderIntegrationTest.dod;
     
     @Autowired
     ShopOrderRepository ShopOrderIntegrationTest.shopOrderRepository;

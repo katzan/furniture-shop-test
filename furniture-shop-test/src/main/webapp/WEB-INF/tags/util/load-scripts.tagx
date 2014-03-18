@@ -20,10 +20,34 @@
   </c:set>
 
   <script type="text/javascript">var djConfig = {parseOnLoad: false, isDebug: false, locale: '${fn:toLowerCase(userLocale)}'};</script>
-
   <script src="${dojo_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
   <script src="${spring_url}" type="text/javascript"><!-- /required for FF3 and Opera --></script>
   <script src="${spring_dojo_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
   <script language="JavaScript" type="text/javascript">dojo.require("dojo.parser");</script>
+	<script type="text/javascript">
 
+        dojo.provide("ValidationTextarea");
+        dojo.require("dijit.form.SimpleTextarea");
+        dojo.require("dijit.form.ValidationTextBox");
+        dojo.declare(
+            "ValidationTextarea",
+            [dijit.form.ValidationTextBox,dijit.form.SimpleTextarea],
+            {
+                  postCreate: function() {
+                    this.inherited(arguments);
+                },
+
+                onFocus: function() {
+
+                        this.displayMessage(this.promptMessage);
+
+                },
+                onmousemove: function() {
+                	this.displayMessage(this.promptMessage);
+                },
+               onBlur: function() {
+                    this.validate(false);
+                }
+             }
+        ); </script>
 </jsp:root>
