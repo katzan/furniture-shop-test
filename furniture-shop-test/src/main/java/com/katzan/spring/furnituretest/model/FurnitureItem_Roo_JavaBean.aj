@@ -20,6 +20,14 @@ privileged aspect FurnitureItem_Roo_JavaBean {
         this.serverPathString = serverPathString;
     }
     
+    public String FurnitureItem.getVirtualPath() {
+        return this.virtualPath;
+    }
+    
+    public void FurnitureItem.setVirtualPath(String virtualPath) {
+        this.virtualPath = virtualPath;
+    }
+    
     public String FurnitureItem.getItemName() {
         return this.itemName;
     }

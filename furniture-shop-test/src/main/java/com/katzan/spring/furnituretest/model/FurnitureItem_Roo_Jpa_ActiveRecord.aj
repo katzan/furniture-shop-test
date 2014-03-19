@@ -14,6 +14,8 @@ privileged aspect FurnitureItem_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager FurnitureItem.entityManager;
     
+    public static final List<String> FurnitureItem.fieldNames4OrderClauseFilter = java.util.Arrays.asList("serverPathString", "virtualPath", "itemName", "codeNumber", "dimensions", "materials", "itemDescription", "metaDescription", "metaTitle", "metaKeywords", "itemPrice", "inStock", "showOnFirstPage", "listNumber", "smallImageFile", "smallImageSize", "smallFile", "largeImageFile", "largeImageSize", "largeFile", "imageFiles", "furnitureCategories", "furnitureCollections", "solrServer", "solrServiceImpl");
+    
     public static final EntityManager FurnitureItem.entityManager() {
         EntityManager em = new FurnitureItem().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
@@ -28,6 +30,17 @@ privileged aspect FurnitureItem_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM FurnitureItem o", FurnitureItem.class).getResultList();
     }
     
+    public static List<FurnitureItem> FurnitureItem.findAllFurnitureItems(String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM FurnitureItem o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, FurnitureItem.class).getResultList();
+    }
+    
     public static FurnitureItem FurnitureItem.findFurnitureItem(Long id) {
         if (id == null) return null;
         return entityManager().find(FurnitureItem.class, id);
@@ -35,6 +48,17 @@ privileged aspect FurnitureItem_Roo_Jpa_ActiveRecord {
     
     public static List<FurnitureItem> FurnitureItem.findFurnitureItemEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM FurnitureItem o", FurnitureItem.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
+    public static List<FurnitureItem> FurnitureItem.findFurnitureItemEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM FurnitureItem o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, FurnitureItem.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional

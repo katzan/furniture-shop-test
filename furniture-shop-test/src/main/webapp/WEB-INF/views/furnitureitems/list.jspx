@@ -14,6 +14,7 @@
             <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureItem_materials" property="materials" render="false" z="user-managed"/>
             <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureItem_itemPrice" property="itemPrice" z="baPo41g66oG9T4kIqBHvg0JlfVw="/>
             <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureItem_serverPathString" property="serverPathString" z="3CvHSLIIGeKZDm6FktgAXaVtN08="/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureItem_virtualPath" property="virtualPath" z="wjIcgFIOwe37q7P0D3FA7CFH5tA="/>
         </table:table>
     </page:list>
 </div>

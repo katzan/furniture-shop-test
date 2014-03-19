@@ -15,6 +15,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 privileged aspect FurnitureItemDataOnDemand_Roo_DataOnDemand {
     
@@ -35,6 +36,7 @@ privileged aspect FurnitureItemDataOnDemand_Roo_DataOnDemand {
         setItemDescription(obj, index);
         setItemName(obj, index);
         setItemPrice(obj, index);
+        setLargeFile(obj, index);
         setLargeImageFile(obj, index);
         setLargeImageSize(obj, index);
         setListNumber(obj, index);
@@ -42,9 +44,12 @@ privileged aspect FurnitureItemDataOnDemand_Roo_DataOnDemand {
         setMetaDescription(obj, index);
         setMetaKeywords(obj, index);
         setMetaTitle(obj, index);
+        setServerPathString(obj, index);
         setShowOnFirstPage(obj, index);
+        setSmallFile(obj, index);
         setSmallImageFile(obj, index);
         setSmallImageSize(obj, index);
+        setVirtualPath(obj, index);
         return obj;
     }
     
@@ -82,6 +87,11 @@ privileged aspect FurnitureItemDataOnDemand_Roo_DataOnDemand {
     public void FurnitureItemDataOnDemand.setItemPrice(FurnitureItem obj, int index) {
         double itemPrice = new Integer(index).doubleValue();
         obj.setItemPrice(itemPrice);
+    }
+    
+    public void FurnitureItemDataOnDemand.setLargeFile(FurnitureItem obj, int index) {
+        CommonsMultipartFile largeFile = null;
+        obj.setLargeFile(largeFile);
     }
     
     public void FurnitureItemDataOnDemand.setLargeImageFile(FurnitureItem obj, int index) {
@@ -128,9 +138,19 @@ privileged aspect FurnitureItemDataOnDemand_Roo_DataOnDemand {
         obj.setMetaTitle(metaTitle);
     }
     
+    public void FurnitureItemDataOnDemand.setServerPathString(FurnitureItem obj, int index) {
+        String serverPathString = "serverPathString_" + index;
+        obj.setServerPathString(serverPathString);
+    }
+    
     public void FurnitureItemDataOnDemand.setShowOnFirstPage(FurnitureItem obj, int index) {
         Boolean showOnFirstPage = Boolean.TRUE;
         obj.setShowOnFirstPage(showOnFirstPage);
+    }
+    
+    public void FurnitureItemDataOnDemand.setSmallFile(FurnitureItem obj, int index) {
+        CommonsMultipartFile smallFile = null;
+        obj.setSmallFile(smallFile);
     }
     
     public void FurnitureItemDataOnDemand.setSmallImageFile(FurnitureItem obj, int index) {
@@ -141,6 +161,14 @@ privileged aspect FurnitureItemDataOnDemand_Roo_DataOnDemand {
     public void FurnitureItemDataOnDemand.setSmallImageSize(FurnitureItem obj, int index) {
         Long smallImageSize = new Integer(index).longValue();
         obj.setSmallImageSize(smallImageSize);
+    }
+    
+    public void FurnitureItemDataOnDemand.setVirtualPath(FurnitureItem obj, int index) {
+        String virtualPath = "virtualPath_" + index;
+        if (virtualPath.length() > 100) {
+            virtualPath = virtualPath.substring(0, 100);
+        }
+        obj.setVirtualPath(virtualPath);
     }
     
     public FurnitureItem FurnitureItemDataOnDemand.getSpecificFurnitureItem(int index) {
@@ -183,13 +211,13 @@ privileged aspect FurnitureItemDataOnDemand_Roo_DataOnDemand {
             FurnitureItem obj = getNewTransientFurnitureItem(i);
             try {
                 furnitureItemRepository.save(obj);
-            } catch (ConstraintViolationException e) {
-                StringBuilder msg = new StringBuilder();
+            } catch (final ConstraintViolationException e) {
+                final StringBuilder msg = new StringBuilder();
                 for (Iterator<ConstraintViolation<?>> iter = e.getConstraintViolations().iterator(); iter.hasNext();) {
-                    ConstraintViolation<?> cv = iter.next();
-                    msg.append("[").append(cv.getConstraintDescriptor()).append(":").append(cv.getMessage()).append("=").append(cv.getInvalidValue()).append("]");
+                    final ConstraintViolation<?> cv = iter.next();
+                    msg.append("[").append(cv.getRootBean().getClass().getName()).append(".").append(cv.getPropertyPath()).append(": ").append(cv.getMessage()).append(" (invalid value = ").append(cv.getInvalidValue()).append(")").append("]");
                 }
-                throw new RuntimeException(msg.toString(), e);
+                throw new IllegalStateException(msg.toString(), e);
             }
             furnitureItemRepository.flush();
             data.add(obj);

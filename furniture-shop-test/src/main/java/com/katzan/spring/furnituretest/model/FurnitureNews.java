@@ -19,4 +19,6 @@ public class FurnitureNews {
     
 	@Size(max=200)
     private String newsTitle;
+	
+  
 }

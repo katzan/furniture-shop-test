@@ -12,6 +12,14 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 privileged aspect FurnitureCategory_Roo_JavaBean {
     
+    public String FurnitureCategory.getVirtualPath() {
+        return this.virtualPath;
+    }
+    
+    public void FurnitureCategory.setVirtualPath(String virtualPath) {
+        this.virtualPath = virtualPath;
+    }
+    
     public String FurnitureCategory.getCategoryName() {
         return this.categoryName;
     }

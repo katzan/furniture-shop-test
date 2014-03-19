@@ -9,7 +9,7 @@
             <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_metaDescription" property="metaDescription" z="StC7BI5EyVx15WGpf8kf+I5Vuro="/>
             <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_metaTitle" property="metaTitle" z="gNt+gBmcUOavx2IjwcXH1LYvKcg="/>
             <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_metaKeywords" property="metaKeywords" z="XvPlbx8638k4hXxRGyGlF6NVm1k="/>
-            <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_collectionPrice" property="collectionPrice" z="JGBQGMIaYOWDloWMbhIg6X+cBTg="/>
+            <table:column id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_virtualPath" property="virtualPath" z="OqTJ7J8nhMx4tUKzGixOzhV0wTY="/>
         </table:table>
     </page:list>
 </div>

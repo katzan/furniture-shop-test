@@ -6,7 +6,10 @@ package com.katzan.spring.furnituretest.model;
 import com.katzan.spring.furnituretest.model.BigDataOnDemand;
 import com.katzan.spring.furnituretest.model.BigIntegrationTest;
 import com.katzan.spring.furnituretest.repository.BigRepository;
+import java.util.Iterator;
 import java.util.List;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +22,7 @@ privileged aspect BigIntegrationTest_Roo_IntegrationTest {
     
     declare @type: BigIntegrationTest: @RunWith(SpringJUnit4ClassRunner.class);
     
-    declare @type: BigIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext*.xml");
+    declare @type: BigIntegrationTest: @ContextConfiguration(locations = "classpath*:/META-INF/spring/applicationContext*.xml");
     
     declare @type: BigIntegrationTest: @Transactional;
     
@@ -104,7 +107,16 @@ privileged aspect BigIntegrationTest_Roo_IntegrationTest {
         Big obj = dod.getNewTransientBig(Integer.MAX_VALUE);
         Assert.assertNotNull("Data on demand for 'Big' failed to provide a new transient entity", obj);
         Assert.assertNull("Expected 'Big' identifier to be null", obj.getId());
-        bigRepository.save(obj);
+        try {
+            bigRepository.save(obj);
+        } catch (final ConstraintViolationException e) {
+            final StringBuilder msg = new StringBuilder();
+            for (Iterator<ConstraintViolation<?>> iter = e.getConstraintViolations().iterator(); iter.hasNext();) {
+                final ConstraintViolation<?> cv = iter.next();
+                msg.append("[").append(cv.getRootBean().getClass().getName()).append(".").append(cv.getPropertyPath()).append(": ").append(cv.getMessage()).append(" (invalid value = ").append(cv.getInvalidValue()).append(")").append("]");
+            }
+            throw new IllegalStateException(msg.toString(), e);
+        }
         bigRepository.flush();
         Assert.assertNotNull("Expected 'Big' identifier to no longer be null", obj.getId());
     }

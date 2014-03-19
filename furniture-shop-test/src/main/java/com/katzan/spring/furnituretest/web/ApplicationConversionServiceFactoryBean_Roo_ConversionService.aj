@@ -168,7 +168,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<FurnitureCategory, String> ApplicationConversionServiceFactoryBean.getFurnitureCategoryToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.katzan.spring.furnituretest.model.FurnitureCategory, java.lang.String>() {
             public String convert(FurnitureCategory furnitureCategory) {
-                return new StringBuilder().append(furnitureCategory.getCategoryName()).append(' ').append(furnitureCategory.getCategoryDescription()).append(' ').append(furnitureCategory.getMetaDescription()).append(' ').append(furnitureCategory.getMetaTitle()).toString();
+                return new StringBuilder().append(furnitureCategory.getVirtualPath()).append(' ').append(furnitureCategory.getCategoryName()).append(' ').append(furnitureCategory.getCategoryDescription()).append(' ').append(furnitureCategory.getMetaDescription()).toString();
             }
         };
     }
@@ -208,7 +208,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<FurnitureItem, String> ApplicationConversionServiceFactoryBean.getFurnitureItemToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.katzan.spring.furnituretest.model.FurnitureItem, java.lang.String>() {
             public String convert(FurnitureItem furnitureItem) {
-                return new StringBuilder().append(furnitureItem.getServerPathString()).append(' ').append(furnitureItem.getItemName()).append(' ').append(furnitureItem.getCodeNumber()).append(' ').append(furnitureItem.getDimensions()).toString();
+                return new StringBuilder().append(furnitureItem.getServerPathString()).append(' ').append(furnitureItem.getVirtualPath()).append(' ').append(furnitureItem.getItemName()).append(' ').append(furnitureItem.getCodeNumber()).toString();
             }
         };
     }

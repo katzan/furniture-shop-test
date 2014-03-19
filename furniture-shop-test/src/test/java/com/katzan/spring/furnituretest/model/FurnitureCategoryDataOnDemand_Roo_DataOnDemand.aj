@@ -38,6 +38,7 @@ privileged aspect FurnitureCategoryDataOnDemand_Roo_DataOnDemand {
         setMetaTitle(obj, index);
         setSmallImageFile(obj, index);
         setSmallImageSize(obj, index);
+        setVirtualPath(obj, index);
         return obj;
     }
     
@@ -101,6 +102,14 @@ privileged aspect FurnitureCategoryDataOnDemand_Roo_DataOnDemand {
         obj.setSmallImageSize(smallImageSize);
     }
     
+    public void FurnitureCategoryDataOnDemand.setVirtualPath(FurnitureCategory obj, int index) {
+        String virtualPath = "virtualPath_" + index;
+        if (virtualPath.length() > 100) {
+            virtualPath = virtualPath.substring(0, 100);
+        }
+        obj.setVirtualPath(virtualPath);
+    }
+    
     public FurnitureCategory FurnitureCategoryDataOnDemand.getSpecificFurnitureCategory(int index) {
         init();
         if (index < 0) {
@@ -141,13 +150,13 @@ privileged aspect FurnitureCategoryDataOnDemand_Roo_DataOnDemand {
             FurnitureCategory obj = getNewTransientFurnitureCategory(i);
             try {
                 furnitureCategoryRepository.save(obj);
-            } catch (ConstraintViolationException e) {
-                StringBuilder msg = new StringBuilder();
+            } catch (final ConstraintViolationException e) {
+                final StringBuilder msg = new StringBuilder();
                 for (Iterator<ConstraintViolation<?>> iter = e.getConstraintViolations().iterator(); iter.hasNext();) {
-                    ConstraintViolation<?> cv = iter.next();
-                    msg.append("[").append(cv.getConstraintDescriptor()).append(":").append(cv.getMessage()).append("=").append(cv.getInvalidValue()).append("]");
+                    final ConstraintViolation<?> cv = iter.next();
+                    msg.append("[").append(cv.getRootBean().getClass().getName()).append(".").append(cv.getPropertyPath()).append(": ").append(cv.getMessage()).append(" (invalid value = ").append(cv.getInvalidValue()).append(")").append("]");
                 }
-                throw new RuntimeException(msg.toString(), e);
+                throw new IllegalStateException(msg.toString(), e);
             }
             furnitureCategoryRepository.flush();
             data.add(obj);

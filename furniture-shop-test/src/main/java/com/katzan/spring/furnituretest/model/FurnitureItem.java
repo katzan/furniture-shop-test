@@ -1,46 +1,22 @@
 package com.katzan.spring.furnituretest.model;
 
+import com.katzan.spring.furnituretest.util.ApplicationContextProvider;
+import com.katzan.spring.furnituretest.util.SolrServerServiceImpl;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
 import java.util.List;
-import java.util.Set;
-
-import javax.annotation.Resource;
-import javax.persistence.Embedded;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PostPersist;
-import javax.persistence.PostUpdate;
-import javax.persistence.PreRemove;
-import javax.persistence.Transient;
-import javax.servlet.jsp.tagext.TryCatchFinally;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
-
-
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServer;
-import org.apache.solr.client.solrj.impl.HttpSolrServer;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrInputDocument;
-import org.hibernate.annotations.CascadeType;
-import org.hibernate.validator.cfg.context.Cascadable;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
 import org.springframework.roo.addon.solr.RooSolrSearchable;
@@ -49,13 +25,17 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import com.katzan.spring.furnituretest.util.ApplicationContextProvider;
-import com.katzan.spring.furnituretest.util.SolrServerServiceImpl;
+
+
+
+
+
+
 
 @RooJavaBean
 @RooToString
 @RooJpaEntity
-@RooSolrSearchable 
+@RooSolrSearchable
 @Component("furnitureItem")
 public class FurnitureItem {
 	
@@ -69,7 +49,10 @@ public class FurnitureItem {
 	//@Value("ServerPath")
     @Transient
     private String serverPathString;
-   
+
+    @Size(max=100)
+    private String virtualPath;
+
     @Size(max = 200)
     private String itemName;
 
@@ -114,20 +97,21 @@ public class FurnitureItem {
     private CommonsMultipartFile largeFile;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<ImageFile> imageFiles;
+    private java.util.Set<ImageFile> imageFiles;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<FurnitureCategory> furnitureCategories;
+    private java.util.Set<FurnitureCategory> furnitureCategories;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<FurnitureCollection> furnitureCollections;
+    private java.util.Set<FurnitureCollection> furnitureCollections;
 
     public void setSmallFile(CommonsMultipartFile smallFile) {
+    	
     	//System.out.println("Path to server images is: "+ this.getServerPathString() );
         if (smallFile != null && smallFile.getSize() > 0) {
             this.smallFile = smallFile;
             SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMyy");
-            Date curDate = new Date();
+            java.util.Date curDate = new java.util.Date();
             String dateString = dateFormat.format(curDate);
             this.smallImageFile = "fism" + dateString + smallFile.getOriginalFilename();
             this.smallImageSize = smallFile.getSize();
@@ -147,13 +131,14 @@ public class FurnitureItem {
                 e.printStackTrace();
             }
         }
+   
     }
 
     public void setLargeFile(CommonsMultipartFile largeFile) {
         if (largeFile != null && largeFile.getSize() > 0) {
             this.largeFile = largeFile;
             SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMyy");
-            Date curDate = new Date();
+            java.util.Date curDate = new java.util.Date();
             String dateString = dateFormat.format(curDate);
             this.largeImageFile = "fila" + dateString + largeFile.getOriginalFilename();
             this.largeImageSize = largeFile.getSize();
@@ -221,7 +206,7 @@ public class FurnitureItem {
     }
 
 	@Async
-    public static void indexFurnitureItems(Collection<FurnitureItem> furnitureitems) {
+    public static void indexFurnitureItems(java.util.Collection<FurnitureItem> furnitureitems) {
         List<SolrInputDocument> documents = new ArrayList<SolrInputDocument>();
         for (FurnitureItem furnitureItem : furnitureitems) {
             SolrInputDocument sid = new SolrInputDocument();
@@ -260,7 +245,8 @@ public class FurnitureItem {
         indexFurnitureItem(this);
     }
 
-	@PreRemove
+
+    @PreRemove
     private void preRemove() {
         deleteIndex(this);
     }

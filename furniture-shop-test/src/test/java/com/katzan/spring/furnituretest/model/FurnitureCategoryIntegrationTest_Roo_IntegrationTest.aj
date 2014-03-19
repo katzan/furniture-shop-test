@@ -6,7 +6,10 @@ package com.katzan.spring.furnituretest.model;
 import com.katzan.spring.furnituretest.model.FurnitureCategoryDataOnDemand;
 import com.katzan.spring.furnituretest.model.FurnitureCategoryIntegrationTest;
 import com.katzan.spring.furnituretest.repository.FurnitureCategoryRepository;
+import java.util.Iterator;
 import java.util.List;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +22,7 @@ privileged aspect FurnitureCategoryIntegrationTest_Roo_IntegrationTest {
     
     declare @type: FurnitureCategoryIntegrationTest: @RunWith(SpringJUnit4ClassRunner.class);
     
-    declare @type: FurnitureCategoryIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext*.xml");
+    declare @type: FurnitureCategoryIntegrationTest: @ContextConfiguration(locations = "classpath*:/META-INF/spring/applicationContext*.xml");
     
     declare @type: FurnitureCategoryIntegrationTest: @Transactional;
     
@@ -104,7 +107,16 @@ privileged aspect FurnitureCategoryIntegrationTest_Roo_IntegrationTest {
         FurnitureCategory obj = dod.getNewTransientFurnitureCategory(Integer.MAX_VALUE);
         Assert.assertNotNull("Data on demand for 'FurnitureCategory' failed to provide a new transient entity", obj);
         Assert.assertNull("Expected 'FurnitureCategory' identifier to be null", obj.getId());
-        furnitureCategoryRepository.save(obj);
+        try {
+            furnitureCategoryRepository.save(obj);
+        } catch (final ConstraintViolationException e) {
+            final StringBuilder msg = new StringBuilder();
+            for (Iterator<ConstraintViolation<?>> iter = e.getConstraintViolations().iterator(); iter.hasNext();) {
+                final ConstraintViolation<?> cv = iter.next();
+                msg.append("[").append(cv.getRootBean().getClass().getName()).append(".").append(cv.getPropertyPath()).append(": ").append(cv.getMessage()).append(" (invalid value = ").append(cv.getInvalidValue()).append(")").append("]");
+            }
+            throw new IllegalStateException(msg.toString(), e);
+        }
         furnitureCategoryRepository.flush();
         Assert.assertNotNull("Expected 'FurnitureCategory' identifier to no longer be null", obj.getId());
     }

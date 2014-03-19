@@ -23,6 +23,9 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 @RooJpaEntity
 public class FurnitureCategory {
 
+    @Size(max = 100)
+    private String virtualPath;
+
     @Size(max=200)
 	private String categoryName;
 

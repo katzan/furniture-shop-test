@@ -7,17 +7,12 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
-
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Transient;
 import javax.validation.constraints.Size;
-
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
-import org.springframework.roo.addon.solr.RooSolrSearchable;
 import org.springframework.roo.addon.tostring.RooToString;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
@@ -26,6 +21,9 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 @RooJpaEntity
 //@RooSolrSearchable
 public class FurnitureCollection {
+
+    @Size(max=100)
+    private String virtualPath;
 
 	@Size(max=200)
     private String collectionName;

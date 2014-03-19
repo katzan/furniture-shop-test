@@ -6,7 +6,10 @@ package com.katzan.spring.furnituretest.model;
 import com.katzan.spring.furnituretest.model.ArticleDataOnDemand;
 import com.katzan.spring.furnituretest.model.ArticleIntegrationTest;
 import com.katzan.spring.furnituretest.repository.ArticleRepository;
+import java.util.Iterator;
 import java.util.List;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +22,7 @@ privileged aspect ArticleIntegrationTest_Roo_IntegrationTest {
     
     declare @type: ArticleIntegrationTest: @RunWith(SpringJUnit4ClassRunner.class);
     
-    declare @type: ArticleIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext*.xml");
+    declare @type: ArticleIntegrationTest: @ContextConfiguration(locations = "classpath*:/META-INF/spring/applicationContext*.xml");
     
     declare @type: ArticleIntegrationTest: @Transactional;
     
@@ -104,7 +107,16 @@ privileged aspect ArticleIntegrationTest_Roo_IntegrationTest {
         Article obj = dod.getNewTransientArticle(Integer.MAX_VALUE);
         Assert.assertNotNull("Data on demand for 'Article' failed to provide a new transient entity", obj);
         Assert.assertNull("Expected 'Article' identifier to be null", obj.getId());
-        articleRepository.save(obj);
+        try {
+            articleRepository.save(obj);
+        } catch (final ConstraintViolationException e) {
+            final StringBuilder msg = new StringBuilder();
+            for (Iterator<ConstraintViolation<?>> iter = e.getConstraintViolations().iterator(); iter.hasNext();) {
+                final ConstraintViolation<?> cv = iter.next();
+                msg.append("[").append(cv.getRootBean().getClass().getName()).append(".").append(cv.getPropertyPath()).append(": ").append(cv.getMessage()).append(" (invalid value = ").append(cv.getInvalidValue()).append(")").append("]");
+            }
+            throw new IllegalStateException(msg.toString(), e);
+        }
         articleRepository.flush();
         Assert.assertNotNull("Expected 'Article' identifier to no longer be null", obj.getId());
     }

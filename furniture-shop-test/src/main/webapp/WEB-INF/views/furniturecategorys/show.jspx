@@ -17,5 +17,6 @@
         <field:display field="largeImageFile" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_largeImageFile" object="${furniturecategory}" z="AWXoOX+0AZnfrwl5D7PFz10rv+8="/>
         <field:display field="largeImageSize" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_largeImageSize" object="${furniturecategory}" z="Sm6TSbTm32ILUj1SoRAFEAYTDNM="/>
         <field:display field="largeFile" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_largeFile" object="${furniturecategory}" z="Bb5WRFOzwY+uZa61bTOvgkodJUs="/>
+        <field:display field="virtualPath" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_virtualPath" object="${furniturecategory}" z="MpBbktlQ65vOU4es0wddTTSPklc="/>
     </page:show>
 </div>

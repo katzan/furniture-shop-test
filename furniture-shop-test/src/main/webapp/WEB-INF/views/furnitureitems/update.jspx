@@ -40,9 +40,7 @@
             <img alt="" src="/furniture-shop-test/img/${furnitureItem.largeImageFile}" style="width: 30%;height: 30%;"/>
         </util:panel>
         <br/>
-        <util:panel id="imageFilePanel" openPane="false" title="Image File Panel">
-            <field:select field="imageFiles" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_imageFiles" itemValue="id" items="${imagefiles}" multiple="true" path="/imagefiles" z="C7zXB2tnoHtXndHLpuByRqzEcsw="/>
-        </util:panel>
+        <util:panel id="imageFilePanel" openPane="false" title="Image File Panel"/>
         <br/>
         <table>
             <tr>
@@ -55,10 +53,12 @@
             </tr>
         </table>
         <br/>
-        <field:input validationMessage="Номер в списке" field="listNumber" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_listNumber" z="user-managed"/>
+        <field:input field="listNumber" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_listNumber" validationMessage="????? ? ??????" z="user-managed"/>
         <field:input field="codeNumber" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_codeNumber" z="RuK/36MHFfx5paUnkEUKJsTyAU0="/>
         <field:input field="dimensions" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_dimensions" z="n5+W+lDRTF284/VDcnCPO/DfNt0="/>
         <field:input field="materials" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_materials" z="SbtBKyUH/kgbdpziOkXf2u8ux7c="/>
         <field:input field="serverPathString" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_serverPathString" z="rAsLug/ONYZiMTqxqGDuZiob9bw="/>
+        <field:input field="imageFiles" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_imageFiles" z="8CJxTaBHdK7V/OAtD3aXlJUIKMw="/>
+        <field:textarea field="virtualPath" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_virtualPath" z="ksFmf8UzKkYZ+a/24mmwHeNB464="/>
     </form:update>
 </div>

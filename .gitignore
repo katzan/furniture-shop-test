@@ -1,8 +1,7 @@
 target/
 bin/target/
-
 furniture-shop-test/.DS_Store
-
 furniture-shop-test/bin/
-
+furniture-shop-test/.idea/
 furniture-shop-test/log.roo
+*.iml

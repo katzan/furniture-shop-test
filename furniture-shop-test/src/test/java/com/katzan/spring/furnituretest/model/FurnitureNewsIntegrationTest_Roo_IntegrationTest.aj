@@ -6,7 +6,10 @@ package com.katzan.spring.furnituretest.model;
 import com.katzan.spring.furnituretest.model.FurnitureNewsDataOnDemand;
 import com.katzan.spring.furnituretest.model.FurnitureNewsIntegrationTest;
 import com.katzan.spring.furnituretest.repository.FurnitureNewsRepository;
+import java.util.Iterator;
 import java.util.List;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +22,7 @@ privileged aspect FurnitureNewsIntegrationTest_Roo_IntegrationTest {
     
     declare @type: FurnitureNewsIntegrationTest: @RunWith(SpringJUnit4ClassRunner.class);
     
-    declare @type: FurnitureNewsIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext*.xml");
+    declare @type: FurnitureNewsIntegrationTest: @ContextConfiguration(locations = "classpath*:/META-INF/spring/applicationContext*.xml");
     
     declare @type: FurnitureNewsIntegrationTest: @Transactional;
     
@@ -104,7 +107,16 @@ privileged aspect FurnitureNewsIntegrationTest_Roo_IntegrationTest {
         FurnitureNews obj = dod.getNewTransientFurnitureNews(Integer.MAX_VALUE);
         Assert.assertNotNull("Data on demand for 'FurnitureNews' failed to provide a new transient entity", obj);
         Assert.assertNull("Expected 'FurnitureNews' identifier to be null", obj.getId());
-        furnitureNewsRepository.save(obj);
+        try {
+            furnitureNewsRepository.save(obj);
+        } catch (final ConstraintViolationException e) {
+            final StringBuilder msg = new StringBuilder();
+            for (Iterator<ConstraintViolation<?>> iter = e.getConstraintViolations().iterator(); iter.hasNext();) {
+                final ConstraintViolation<?> cv = iter.next();
+                msg.append("[").append(cv.getRootBean().getClass().getName()).append(".").append(cv.getPropertyPath()).append(": ").append(cv.getMessage()).append(" (invalid value = ").append(cv.getInvalidValue()).append(")").append("]");
+            }
+            throw new IllegalStateException(msg.toString(), e);
+        }
         furnitureNewsRepository.flush();
         Assert.assertNotNull("Expected 'FurnitureNews' identifier to no longer be null", obj.getId());
     }

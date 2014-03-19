@@ -23,5 +23,6 @@
             <field:file field="largeFile" id="c_com_katzan_spring_furnituretest_model_FurnitureCategory_largeFile" z="user-managed"/>
         </util:panel>
         <br/>
+        <field:textarea field="virtualPath" id="c_com_katzan_spring_furnituretest_model_FurnitureCategory_virtualPath" z="P/1g18wrpYVEkGcjoFV9d7NTHeQ="/>
     </form:update>
 </div>

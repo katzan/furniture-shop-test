@@ -27,7 +27,6 @@
             <field:display field="smallImageSize" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_smallImageSize" object="${furnitureItem}" z="user-managed"/>
             <field:file field="smallFile" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_smallFile" z="user-managed"/>
             <img alt="" src="${pageContext.request.contextPath}/img/${furnitureItem.smallImageFile}" style="width: 30%;height: 30%;"/>
-            <field:input field="smallImageFile" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_smallImageFile" z="NWocvNcruVuJkLP+tiwI7ffE2tM="/>
         </util:panel>
         <br/>
         <util:panel id="largeImageFilePanel" openPane="false" title="Large Image File Panel">
@@ -37,9 +36,7 @@
             <img alt="" src="${pageContext.request.contextPath}/img/${furnitureItem.largeImageFile}" style="width: 30%;height: 30%;"/>
         </util:panel>
         <br/>
-        <util:panel id="imageFilePanel" openPane="false" title="Image File Panel">
-            <field:select field="imageFiles" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_imageFiles" itemValue="id" items="${imagefiles}" multiple="true" path="/imagefiles" z="C7zXB2tnoHtXndHLpuByRqzEcsw="/>
-        </util:panel>
+        <util:panel id="imageFilePanel" openPane="false" title="Image File Panel"/>
         <br/>
         <table>
             <tr>
@@ -57,6 +54,9 @@
         <field:input field="dimensions" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_dimensions" z="n5+W+lDRTF284/VDcnCPO/DfNt0="/>
         <field:input field="materials" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_materials" z="SbtBKyUH/kgbdpziOkXf2u8ux7c="/>
         <field:input field="serverPathString" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_serverPathString" z="rAsLug/ONYZiMTqxqGDuZiob9bw="/>
+        <field:input field="smallImageFile" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_smallImageFile" z="NWocvNcruVuJkLP+tiwI7ffE2tM="/>
+        <field:input field="imageFiles" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_imageFiles" z="8CJxTaBHdK7V/OAtD3aXlJUIKMw="/>
+        <field:textarea field="virtualPath" id="c_com_katzan_spring_furnituretest_model_FurnitureItem_virtualPath" z="ksFmf8UzKkYZ+a/24mmwHeNB464="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_katzan_spring_furnituretest_model_FurnitureItem" render="${not empty dependencies}" z="Lj06KwgGindomqBgLqVNAPK9xEg="/>
 </div>

@@ -40,6 +40,7 @@ privileged aspect FurnitureCollectionDataOnDemand_Roo_DataOnDemand {
         setMetaTitle(obj, index);
         setSmallImageFile(obj, index);
         setSmallImageSize(obj, index);
+        setVirtualPath(obj, index);
         return obj;
     }
     
@@ -111,6 +112,14 @@ privileged aspect FurnitureCollectionDataOnDemand_Roo_DataOnDemand {
     public void FurnitureCollectionDataOnDemand.setSmallImageSize(FurnitureCollection obj, int index) {
         Long smallImageSize = new Integer(index).longValue();
         obj.setSmallImageSize(smallImageSize);
+    }
+    
+    public void FurnitureCollectionDataOnDemand.setVirtualPath(FurnitureCollection obj, int index) {
+        String virtualPath = "virtualPath_" + index;
+        if (virtualPath.length() > 100) {
+            virtualPath = virtualPath.substring(0, 100);
+        }
+        obj.setVirtualPath(virtualPath);
     }
     
     public FurnitureCollection FurnitureCollectionDataOnDemand.getSpecificFurnitureCollection(int index) {

@@ -6,7 +6,10 @@ package com.katzan.spring.furnituretest.model;
 import com.katzan.spring.furnituretest.model.ContactDataOnDemand;
 import com.katzan.spring.furnituretest.model.ContactIntegrationTest;
 import com.katzan.spring.furnituretest.repository.ContactRepository;
+import java.util.Iterator;
 import java.util.List;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +22,7 @@ privileged aspect ContactIntegrationTest_Roo_IntegrationTest {
     
     declare @type: ContactIntegrationTest: @RunWith(SpringJUnit4ClassRunner.class);
     
-    declare @type: ContactIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext*.xml");
+    declare @type: ContactIntegrationTest: @ContextConfiguration(locations = "classpath*:/META-INF/spring/applicationContext*.xml");
     
     declare @type: ContactIntegrationTest: @Transactional;
     
@@ -104,7 +107,16 @@ privileged aspect ContactIntegrationTest_Roo_IntegrationTest {
         Contact obj = dod.getNewTransientContact(Integer.MAX_VALUE);
         Assert.assertNotNull("Data on demand for 'Contact' failed to provide a new transient entity", obj);
         Assert.assertNull("Expected 'Contact' identifier to be null", obj.getId());
-        contactRepository.save(obj);
+        try {
+            contactRepository.save(obj);
+        } catch (final ConstraintViolationException e) {
+            final StringBuilder msg = new StringBuilder();
+            for (Iterator<ConstraintViolation<?>> iter = e.getConstraintViolations().iterator(); iter.hasNext();) {
+                final ConstraintViolation<?> cv = iter.next();
+                msg.append("[").append(cv.getRootBean().getClass().getName()).append(".").append(cv.getPropertyPath()).append(": ").append(cv.getMessage()).append(" (invalid value = ").append(cv.getInvalidValue()).append(")").append("]");
+            }
+            throw new IllegalStateException(msg.toString(), e);
+        }
         contactRepository.flush();
         Assert.assertNotNull("Expected 'Contact' identifier to no longer be null", obj.getId());
     }

@@ -6,7 +6,10 @@ package com.katzan.spring.furnituretest.model;
 import com.katzan.spring.furnituretest.model.ShopOrderDetailDataOnDemand;
 import com.katzan.spring.furnituretest.model.ShopOrderDetailIntegrationTest;
 import com.katzan.spring.furnituretest.repository.ShopOrderDetailRepository;
+import java.util.Iterator;
 import java.util.List;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +22,7 @@ privileged aspect ShopOrderDetailIntegrationTest_Roo_IntegrationTest {
     
     declare @type: ShopOrderDetailIntegrationTest: @RunWith(SpringJUnit4ClassRunner.class);
     
-    declare @type: ShopOrderDetailIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext*.xml");
+    declare @type: ShopOrderDetailIntegrationTest: @ContextConfiguration(locations = "classpath*:/META-INF/spring/applicationContext*.xml");
     
     declare @type: ShopOrderDetailIntegrationTest: @Transactional;
     
@@ -104,7 +107,16 @@ privileged aspect ShopOrderDetailIntegrationTest_Roo_IntegrationTest {
         ShopOrderDetail obj = dod.getNewTransientShopOrderDetail(Integer.MAX_VALUE);
         Assert.assertNotNull("Data on demand for 'ShopOrderDetail' failed to provide a new transient entity", obj);
         Assert.assertNull("Expected 'ShopOrderDetail' identifier to be null", obj.getId());
-        shopOrderDetailRepository.save(obj);
+        try {
+            shopOrderDetailRepository.save(obj);
+        } catch (final ConstraintViolationException e) {
+            final StringBuilder msg = new StringBuilder();
+            for (Iterator<ConstraintViolation<?>> iter = e.getConstraintViolations().iterator(); iter.hasNext();) {
+                final ConstraintViolation<?> cv = iter.next();
+                msg.append("[").append(cv.getRootBean().getClass().getName()).append(".").append(cv.getPropertyPath()).append(": ").append(cv.getMessage()).append(" (invalid value = ").append(cv.getInvalidValue()).append(")").append("]");
+            }
+            throw new IllegalStateException(msg.toString(), e);
+        }
         shopOrderDetailRepository.flush();
         Assert.assertNotNull("Expected 'ShopOrderDetail' identifier to no longer be null", obj.getId());
     }
