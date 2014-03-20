@@ -3,5 +3,7 @@ bin/target/
 furniture-shop-test/.DS_Store
 furniture-shop-test/bin/
 furniture-shop-test/.idea/
+furniture-shop-test/.settings/
+furniture-shop-test/.project
 furniture-shop-test/log.roo
 *.iml
