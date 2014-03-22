@@ -9,14 +9,21 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+//import java.util.Map;
+
 import javax.persistence.*;
+//import javax.persistence.*;
+//import java.util.*;
 import javax.validation.constraints.Size;
+
+import com.katzan.spring.furnituretest.util.Translit;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrInputDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+//import org.springframework.context.event.ApplicationContextEvent;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
 import org.springframework.roo.addon.solr.RooSolrSearchable;
@@ -182,8 +189,8 @@ public class FurnitureItem {
 	@Autowired
     transient SolrServer solrServer;
 	
-	@Autowired
-	transient SolrServerServiceImpl solrServiceImpl;
+	//@Autowired
+	//transient SolrServerServiceImpl solrServiceImpl;
 
 	public static QueryResponse search(String queryString) {
         String searchString = "FurnitureItem_solrsummary_t:" + queryString;
@@ -236,6 +243,14 @@ public class FurnitureItem {
             solrServer.commit();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    @PreUpdate
+    @PrePersist
+    private void prePersistOrUpdate() {
+        if(this.virtualPath==null||this.virtualPath.trim().length()==0) {
+           this.virtualPath = Translit.getLatinStringWithUnderscore(this.itemName+"_"+this.codeNumber);
         }
     }
 

@@ -21,7 +21,7 @@
         <field:input field="largeImageSize" id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_largeImageSize" z="EvWWYiq8dH/n5+g/36sQ/hb/j+w="/>
         <field:file field="largeFile" id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_largeFile" z="user-managed"/>
         <img alt="" src="/img/${furnitureCollection.largeImageFile}" style="width: 30%;height: 30%;"/>
-        <field:input field="virtualPath" id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_virtualPath" z="993OiHJVNpkgfMABhONJpkkx1BI="/>
+        <field:textarea field="virtualPath" id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_virtualPath" z="slYJwEdettCv2ljuQUuVtFwyPAY="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_katzan_spring_furnituretest_model_FurnitureCollection" render="${not empty dependencies}" z="oEl/pzQEtkKO8qMakhAQmwXB7f8="/>
 </div>

@@ -14,7 +14,7 @@ privileged aspect FurnitureItem_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager FurnitureItem.entityManager;
     
-    public static final List<String> FurnitureItem.fieldNames4OrderClauseFilter = java.util.Arrays.asList("serverPathString", "virtualPath", "itemName", "codeNumber", "dimensions", "materials", "itemDescription", "metaDescription", "metaTitle", "metaKeywords", "itemPrice", "inStock", "showOnFirstPage", "listNumber", "smallImageFile", "smallImageSize", "smallFile", "largeImageFile", "largeImageSize", "largeFile", "imageFiles", "furnitureCategories", "furnitureCollections", "solrServer", "solrServiceImpl");
+    public static final List<String> FurnitureItem.fieldNames4OrderClauseFilter = java.util.Arrays.asList("serverPathString", "virtualPath", "itemName", "codeNumber", "dimensions", "materials", "itemDescription", "metaDescription", "metaTitle", "metaKeywords", "itemPrice", "inStock", "showOnFirstPage", "listNumber", "smallImageFile", "smallImageSize", "smallFile", "largeImageFile", "largeImageSize", "largeFile", "imageFiles", "furnitureCategories", "furnitureCollections", "solrServer");
     
     public static final EntityManager FurnitureItem.entityManager() {
         EntityManager em = new FurnitureItem().entityManager;
