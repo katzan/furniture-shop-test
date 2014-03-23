@@ -8,11 +8,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
+import com.katzan.spring.furnituretest.util.Translit;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -46,6 +45,7 @@ public class FurnitureCategory {
     
     @ManyToMany(fetch=FetchType.EAGER)
     private Set<ImageFile>imageFiles;
+
     @ManyToMany(mappedBy="furnitureCategories")
     private Set<FurnitureCollection>furnitureCollections;
     
@@ -116,6 +116,14 @@ public class FurnitureCategory {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    @PreUpdate
+    @PrePersist
+    private void prePersistOrUpdate() {
+        if(this.virtualPath==null||this.virtualPath.trim().length()==0) {
+            this.virtualPath = Translit.getLatinStringWithUnderscore(this.categoryName);
         }
     }
 }

@@ -15,6 +15,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 privileged aspect FurnitureCategoryDataOnDemand_Roo_DataOnDemand {
     
@@ -31,11 +32,13 @@ privileged aspect FurnitureCategoryDataOnDemand_Roo_DataOnDemand {
         FurnitureCategory obj = new FurnitureCategory();
         setCategoryDescription(obj, index);
         setCategoryName(obj, index);
+        setLargeFile(obj, index);
         setLargeImageFile(obj, index);
         setLargeImageSize(obj, index);
         setMetaDescription(obj, index);
         setMetaKeywords(obj, index);
         setMetaTitle(obj, index);
+        setSmallFile(obj, index);
         setSmallImageFile(obj, index);
         setSmallImageSize(obj, index);
         setVirtualPath(obj, index);
@@ -56,6 +59,11 @@ privileged aspect FurnitureCategoryDataOnDemand_Roo_DataOnDemand {
             categoryName = categoryName.substring(0, 200);
         }
         obj.setCategoryName(categoryName);
+    }
+    
+    public void FurnitureCategoryDataOnDemand.setLargeFile(FurnitureCategory obj, int index) {
+        CommonsMultipartFile largeFile = null;
+        obj.setLargeFile(largeFile);
     }
     
     public void FurnitureCategoryDataOnDemand.setLargeImageFile(FurnitureCategory obj, int index) {
@@ -90,6 +98,11 @@ privileged aspect FurnitureCategoryDataOnDemand_Roo_DataOnDemand {
             metaTitle = metaTitle.substring(0, 200);
         }
         obj.setMetaTitle(metaTitle);
+    }
+    
+    public void FurnitureCategoryDataOnDemand.setSmallFile(FurnitureCategory obj, int index) {
+        CommonsMultipartFile smallFile = null;
+        obj.setSmallFile(smallFile);
     }
     
     public void FurnitureCategoryDataOnDemand.setSmallImageFile(FurnitureCategory obj, int index) {

@@ -15,6 +15,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 privileged aspect FurnitureCollectionDataOnDemand_Roo_DataOnDemand {
     
@@ -33,11 +34,13 @@ privileged aspect FurnitureCollectionDataOnDemand_Roo_DataOnDemand {
         setCollectionName(obj, index);
         setCollectionPrice(obj, index);
         setInStock(obj, index);
+        setLargeFile(obj, index);
         setLargeImageFile(obj, index);
         setLargeImageSize(obj, index);
         setMetaDescription(obj, index);
         setMetaKeywords(obj, index);
         setMetaTitle(obj, index);
+        setSmallFile(obj, index);
         setSmallImageFile(obj, index);
         setSmallImageSize(obj, index);
         setVirtualPath(obj, index);
@@ -68,6 +71,11 @@ privileged aspect FurnitureCollectionDataOnDemand_Roo_DataOnDemand {
     public void FurnitureCollectionDataOnDemand.setInStock(FurnitureCollection obj, int index) {
         Boolean inStock = Boolean.TRUE;
         obj.setInStock(inStock);
+    }
+    
+    public void FurnitureCollectionDataOnDemand.setLargeFile(FurnitureCollection obj, int index) {
+        CommonsMultipartFile largeFile = null;
+        obj.setLargeFile(largeFile);
     }
     
     public void FurnitureCollectionDataOnDemand.setLargeImageFile(FurnitureCollection obj, int index) {
@@ -102,6 +110,11 @@ privileged aspect FurnitureCollectionDataOnDemand_Roo_DataOnDemand {
             metaTitle = metaTitle.substring(0, 200);
         }
         obj.setMetaTitle(metaTitle);
+    }
+    
+    public void FurnitureCollectionDataOnDemand.setSmallFile(FurnitureCollection obj, int index) {
+        CommonsMultipartFile smallFile = null;
+        obj.setSmallFile(smallFile);
     }
     
     public void FurnitureCollectionDataOnDemand.setSmallImageFile(FurnitureCollection obj, int index) {
