@@ -5,7 +5,6 @@
     <page:show id="ps_com_katzan_spring_furnituretest_model_FurnitureCategory" object="${furniturecategory}" path="/furniturecategorys" z="qfgt0hyC8kCu1+Z4CfxLV3I/qvk=">
         <field:display field="categoryName" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_categoryName" object="${furniturecategory}" z="vDAM9XdoJ6+YcvZuUshMl+E5G5o="/>
         <field:display field="categoryDescription" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_categoryDescription" object="${furniturecategory}" z="rUn9+OvUxHzStY+Ckq4hkm/TlVg="/>
-        <field:display field="furnitureCollections" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_furnitureCollections" object="${furniturecategory}" z="sMFeuttKRY5U+mZyqM9ozDbjPRU="/>
         <field:display field="furnitureItems" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_furnitureItems" object="${furniturecategory}" z="jXQADFjyCSQoylD/+K68zRhSsvY="/>
         <field:display field="metaDescription" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_metaDescription" object="${furniturecategory}" z="8aEiDuJxQOfGMTaRWj7T1jN7wNk="/>
         <field:display field="metaTitle" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_metaTitle" object="${furniturecategory}" z="ST3ggB249J8y7MAl4WFkCOolSTc="/>
@@ -18,5 +17,6 @@
         <field:display field="largeImageSize" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_largeImageSize" object="${furniturecategory}" z="Sm6TSbTm32ILUj1SoRAFEAYTDNM="/>
         <field:display field="largeFile" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_largeFile" object="${furniturecategory}" z="Bb5WRFOzwY+uZa61bTOvgkodJUs="/>
         <field:display field="virtualPath" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_virtualPath" object="${furniturecategory}" z="MpBbktlQ65vOU4es0wddTTSPklc="/>
+        <field:display field="furnitureCollections" id="s_com_katzan_spring_furnituretest_model_FurnitureCategory_furnitureCollections" object="${furniturecategory}" z="sMFeuttKRY5U+mZyqM9ozDbjPRU="/>
     </page:show>
 </div>

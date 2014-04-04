@@ -11,8 +11,8 @@
         <field:input field="collectionPrice" id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_collectionPrice" z="ifniZW+kQ6ltClYT4dpnECj6tJQ="/>
         <field:checkbox field="inStock" id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_inStock" z="ccLyFfShECgIWqEVnJ5RmtssQ3Y="/>
         <field:input field="imageFiles" id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_imageFiles" z="amb37W+WVkffQWXgDZtu+u84QQM="/>
-        <field:input field="furnitureCategories" id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_furnitureCategories" z="Eki7e9rnqnw1jrP661xPefQSL+k="/>
-        <field:input field="furnitureItems" id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_furnitureItems" z="f2j6d8OgsnEbR2VUfq6H63rIlG0="/>
+        <field:select field="furnitureCategories" id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_furnitureCategories" itemValue="id" items="${furniturecategorys}" multiple="true" path="/furniturecategorys" z="user-managed"/>
+        <field:select field="furnitureItems" id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_furnitureItems" itemValue="id" items="${furnitureitems}" multiple="true" path="/furnitureitems" z="user-managed"/>
         <field:input field="smallImageFile" id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_smallImageFile" z="/vhnnQbGYJ9g6pcOCAvmj1Uw0fY="/>
         <field:input field="smallImageSize" id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_smallImageSize" z="rh1I0Twcpx6OlFyZQuCNaI0vg94="/>
         <field:file field="smallFile" id="c_com_katzan_spring_furnituretest_model_FurnitureCollection_smallFile" z="user-managed"/>

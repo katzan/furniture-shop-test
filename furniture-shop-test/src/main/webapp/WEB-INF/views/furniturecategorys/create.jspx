@@ -5,8 +5,6 @@
     <form:create id="fc_com_katzan_spring_furnituretest_model_FurnitureCategory" modelAttribute="furnitureCategory" multipart="true" path="/furniturecategorys" render="${empty dependencies}" z="user-managed">
         <field:textarea field="categoryName" id="c_com_katzan_spring_furnituretest_model_FurnitureCategory_categoryName" promptMessage="??????? ??? ?????????" z="user-managed"/>
         <field:textarea field="categoryDescription" id="c_com_katzan_spring_furnituretest_model_FurnitureCategory_categoryDescription" z="ttl4B7nFexCzOAFcN8ZqNeyJNBE="/>
-        <field:input field="furnitureCollections" id="c_com_katzan_spring_furnituretest_model_FurnitureCategory_furnitureCollections" z="aNN3ZEHsHYrpUyFCUsA0OTdwlTg="/>
-        <field:input field="furnitureItems" id="c_com_katzan_spring_furnituretest_model_FurnitureCategory_furnitureItems" z="6mk5TYBHBaVqN1VIn6skKbDz79g="/>
         <field:textarea field="metaDescription" id="c_com_katzan_spring_furnituretest_model_FurnitureCategory_metaDescription" z="8TvDoCTeH5dbGNuU4/XfKm7SMRg="/>
         <field:textarea field="metaTitle" id="c_com_katzan_spring_furnituretest_model_FurnitureCategory_metaTitle" z="j8mD2+O7VHiCFTzi+s/qOklN3v0="/>
         <field:textarea field="metaKeywords" id="c_com_katzan_spring_furnituretest_model_FurnitureCategory_metaKeywords" z="fs3OQwI0AA0BFTqeP6GM1x5o+1g="/>
@@ -24,6 +22,8 @@
         </util:panel>
         <br/>
         <field:textarea field="virtualPath" id="c_com_katzan_spring_furnituretest_model_FurnitureCategory_virtualPath" z="P/1g18wrpYVEkGcjoFV9d7NTHeQ="/>
+        <field:select field="furnitureItems" id="c_com_katzan_spring_furnituretest_model_FurnitureCategory_furnitureItems" itemValue="id" items="${furnitureitems}" multiple="true" path="/furnitureitems" z="user-managed"/>
+        <field:select field="furnitureCollections" id="c_com_katzan_spring_furnituretest_model_FurnitureCategory_furnitureCollections" itemValue="id" items="${furniturecollections}" multiple="true" path="/furniturecollections" z="user-managed"/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_katzan_spring_furnituretest_model_FurnitureCategory" render="${not empty dependencies}" z="oAuE/uiw8SxbxfTZ+JkMEvOAxSc="/>
 </div>

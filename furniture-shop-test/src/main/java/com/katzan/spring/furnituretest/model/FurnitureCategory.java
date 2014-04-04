@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 
@@ -47,7 +48,7 @@ public class FurnitureCategory {
     private Set<ImageFile>imageFiles;
 
     @ManyToMany(mappedBy="furnitureCategories")
-    private Set<FurnitureCollection>furnitureCollections;
+    private java.util.Set<FurnitureCollection> furnitureCollections;
     
     @ManyToMany(mappedBy="furnitureCategories")
     private Set<FurnitureItem>furnitureItems;
